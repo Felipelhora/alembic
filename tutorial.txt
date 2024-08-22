@@ -1,0 +1,43 @@
+### COMANDOS 
+        alembic init "pasta onde ficarão as migrations"s
+        alembic revision -m "nome que espicifica a versão"
+        alembic revision --autogenerate -m "ele ira ler o que tem escrito no banco e ira criar a nova migration sobre "
+        alembic upgrade head # head é para ir para a última migração ou pode ser +1 ou 2+ para indicar qual seria
+        alembic downgrade base # volta para a primeira versão versão anterior ou -1 para voltar apenas uma
+        alembic history -i # indica em que migração está
+
+
+
+
+#### versions
+
+     cada versão tem um arquivo
+     ## upgrade cria as tabelas
+     ### downgrade volta a versão anterior
+
+
+#### alembic.init
+-> local onde é feita a configuração do banco de dados
+script_location = migration - > pasta onde estão as migrations
+prepend_sys_path - > de onde parte para achar a pasta
+sqlalchemy.url = driver://user:pass@localhost/dbname - > endereço da url sqlalchemy
+
+
+
+#### env.py
+
+
+target_metadata = None -> pode ser apontando para Base.Metadata para vincular o sqlalchemy com o que le e o que gerado
+
+
+-------------
+
+sqlacodegen
+
+para pegar do banco e criar o código
+
+
+### comandos 
+sqlacodegen "endereço do banco" > onde será salvo
+
+#sqlacodegen sqlite:///live_migrations.db > models.py
